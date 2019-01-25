@@ -4,9 +4,11 @@ import pl.mk.bar.Model.Bar;
 import pl.mk.bar.Model.Bartender;
 import pl.mk.bar.Model.Customer;
 
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println("Welcome in the greatest bar in the world!");
 
         Bar bar = new Bar();
@@ -33,14 +35,22 @@ public class Main {
         thread5.start();
         thread6.start();
 
-        thread1.interrupt();
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String line = scanner.nextLine();
+            if (line.equals("quit")) {
+                break;
+            }
+
+        }
+
         thread2.interrupt();
         thread3.interrupt();
         thread4.interrupt();
         thread5.interrupt();
         thread6.interrupt();
-
-
+        thread1.interrupt();
 
 
     }
