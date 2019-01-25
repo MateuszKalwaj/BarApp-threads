@@ -16,8 +16,9 @@ public class Bar {
      *
      * @return drink ready to served
      * @throws InterruptedException
+     * @param s
      */
-    public synchronized String drinkReady() throws InterruptedException{
+    public synchronized String drinkReady(String s) throws InterruptedException{
         while (drinksMenu.isEmpty()) {
             wait();
         }
