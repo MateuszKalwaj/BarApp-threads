@@ -1,9 +1,10 @@
-package pl.mk.bar;
+package pl.mk.bar.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bar {
+
 
     //create new list for drinks
     private List<String> drinksMenu = new ArrayList<String>();
@@ -16,13 +17,14 @@ public class Bar {
      *
      * @return drink ready to served
      * @throws InterruptedException
-     * @param s
+     * @param
      */
-    public synchronized String drinkReady(String s) throws InterruptedException{
+    public synchronized String drinkReady() throws InterruptedException{
         while (drinksMenu.isEmpty()) {
             wait();
         }
-        String drinkServed = drinksMenu.get(1);
+        String drinkServed = drinksMenu.get(0);
+        drinksMenu.remove(0);
         return  drinkServed;
     }
 

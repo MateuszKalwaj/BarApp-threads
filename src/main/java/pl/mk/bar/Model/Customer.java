@@ -1,6 +1,4 @@
-package pl.mk.bar;
-
-public class Customer {
+package pl.mk.bar.Model;
 
     public class Customer implements Runnable {
 
@@ -12,22 +10,21 @@ public class Customer {
             this.name = name;
             this.bar = bar;
         }
-
         public void run() {
 
             while (!Thread.interrupted()) {
-                String drink = bar.drinkReady();
-                System.out.println(name + "is drinking" + drink);
-                int drinkTime = bar.drinkReady().length();
                 try {
+                    String drink = bar.drinkReady();
+                    System.out.println(name + "is drinking" + drink);
+                    int drinkTime = bar.drinkReady().length();
                     Thread.sleep(drinkTime);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                    break;
+                }
+
+                break;
                 }
             }
         }
 
 
-    }
-}
