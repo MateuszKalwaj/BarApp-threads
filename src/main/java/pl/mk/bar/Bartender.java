@@ -13,7 +13,6 @@ public class Bartender {
         public Barman(Bar bar) {
             this.bar = bar;
         }
-
         public void run() {
             while (!Thread.interrupted()) {
                 for (int i = 0; i <drinksTable.length; i++) {
